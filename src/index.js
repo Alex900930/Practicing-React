@@ -1,17 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+//const element = document.createElement('h1')
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+//element.innerText = "Hello React...";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//const container = document.getElementById('root');
+
+//container.appendChild(element);
+
+import React from 'react'
+import ReactDOM from 'react-dom'
+const user = {
+  name: "Alex",
+  lastName: "Herrera",
+  avatar: '../src/img/076d9a2184bb3d886f169bfc6459fb89.jpg'
+};
+
+function getName(user){
+  return `${user.name} ${user.lastName}`
+}
+
+function getGreeting(user){
+  if(user){
+   return <h1>Hello {getName(user)}</h1>
+  }
+  return <h1>Hello Stranger </h1>
+}
+const element = (
+  <div>
+    <h1>{getGreeting(user)}</h1>
+    <img src={user.avatar} />
+  </div>
+)
+const container = document.getElementById('root')
+
+ReactDOM.render(element, container);
